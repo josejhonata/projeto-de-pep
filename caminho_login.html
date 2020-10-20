@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<style type="text/css">
+	body{
+		font-family: arial;
+		background: url("imagem/saude.jpg");
+		background-size: 100%;
+	}
+	img{
+		width: 40px;
+	}
+	input{
+    	text-align: center;
+    	padding: .2em;
+    	width: 200px;
+    	height: 25px;
+    	border-style: ridge;
+    	border-color: green;
+      	border-width: 4px;
+	}
+	.buttom{
+		border-style: solid;
+      	border-width: 1px;
+		width: 100px;
+		height: 25px;
+		cursor: pointer;
+	}
+	form{
+    	width: 50%;
+    	margin: auto;
+    	border-style: double;
+	}
+	h1{
+		text-align: center;
+	}
+</style>
+<body>
+	<input type = "checkbox" id = "check">
+	<label for ="check">
+		<img src="imagem/indice.png">
+	</label>
+	<nav>
+		<ul>
+			<li><a href="caminho_login.html">LOGIN</a></li>
+			<li><a href="">DESENVOLVEDORES</a></li>
+			<li><a href="">AJUDA</a></li>
+			<li><a href="home.html">HOME</a></li>
+		</ul>
+	</nav>
+<form>
+	<h1>Atendente</h1>
+	<fieldset>
+		<input type="text" name="login" placeholder="Usermame">
+		<input type="password" name="password" placeholder="Password">
+		<input type="submit" class = "buttom" value="OK">
+	</fieldset>
+</form>
+<form>
+	<h1>Cliente</h1>
+	<fieldset>
+		<input type="text" name="login" placeholder="Usermame">
+		<input type="password" name="password" placeholder="Password">
+		<input type="submit" class = "buttom" value="OK">
+	</fieldset>
+</form>
+</body>
+</html>

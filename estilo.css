@@ -1,49 +1,49 @@
 *{
-   margin: 0;
-   padding: 0;
-   font-family: "montserrat",sans-serif;
+	padding: 0px;
+	margin: 0px;
+}
+a{
+	text-decoration: none;
+	color:black;
 }
 body{
-	background-color:#34495e;
-	background-size: 650px;
-	color: #fff;
-	height: 1px;
-   padding-top: 10px;
+	font-family: arial;
+	background: url("imagem/saude.jpg");
+	background-size: 100%;
 }
+img{
+	width: 40px;
 }
-h1{
-	color: #fff;
-	height: 100px;
-	padding: 0.20px;
+input[type = "checkbox"]{
+	display: none;
 }
-h2{
-	padding-top: 100px;
+nav{
+	background-color:rgba(60, 179, 113, 1);
+	width: 350px;
+	height: 100%;
+	left: -350px;
+	position: absolute;
+	transition: all .5s;
 }
-p{
-	padding-left: 100px;
-    padding-right: 100px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+input[type = "checkbox"]:checked ~ nav{
+	transform: translateX(350px);
 }
 ul{
-	object-position: center;
-	text-align: center;
-	padding-top: 100px;
+	top: 70px;
+	position: absolute;
+	width: 100%;
 }
-ul a{
-	text-transform: uppercase;
-	text-decoration: none;
-	color: #fff;
-	padding:15px 20px;
-	margin: 10px 30px;
-	display: inline-block;
-	border: 1px solid #fff;
-	transition: 0.4s;
+a{
+	display: block;
+	padding: 20px 5px;
+	color: white;
 }
-ul a:hover{
-background-color: #fff;
-color: #777;
-} 
-.btm-1{
-	transition: background-color .5s;
+a:hover{
+	background-color: rgb(176, 224, 230);
+	color: black;
+}
+label{
+	padding: 15px;
+	position: absolute;
+	z-index: 1;
 }
