@@ -16,6 +16,6 @@ if(sizeof($line) == 0){
 	exit();
 }
 $_SESSION['username'] = $line[0]['username'];
-$_SESSION['user_id'] = $line[0]['id'];
+$_SESSION['matricula'] = $line[0]['matricula'];
 header('location:atendente_logado.php');
 ?>

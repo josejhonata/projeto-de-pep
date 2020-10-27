@@ -1,8 +1,8 @@
 <?php 
 
 $fonteDados = 'mysql:dbname=clinica';
-$usuario = 'Esculapio';
-$senha = '@lunoifp3';
-$pdo = new PDO($fonteDados, $usuario, $senha);
+$username = 'esculapio';
+$password = '@lunoifp3';
+$pdo = new PDO($fonteDados, $username, $password);
 
  ?>
