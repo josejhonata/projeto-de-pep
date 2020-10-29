@@ -35,7 +35,7 @@ $cliente = $consulta->fetchALL();
 		<div class="FormularioInput">
 			<div class="FormularioInput">
 				Nome: <br>
-				<input type="text" name="Nome">
+				<input type="text" name="nome">
 			</div>
 			<div class="FormularioInput">
 				Username: <br>
