@@ -11,6 +11,9 @@ if (!isset($_SESSION['matricula'])) {
 $consulta = $pdo->prepare('SELECT * FROM cliente WHERE id = ?');
 $consulta->execute([$_SESSION['id']]);
 $cliente = $consulta->fetchALL();
+
+
+$matricul = $_SESSION['matricula'];
 ?>
 <table border="10">
 	<h1>Clientes</h1>
@@ -47,8 +50,7 @@ $cliente = $consulta->fetchALL();
 				<input type="password" name="password">
 			</div>
 			<div class="FormularioInput">
-				Matrícula do Atendente: <br>
-				<input type="text" name="atendente_matri">
+				<?php echo "Matrícula do Atendente: ". $matricul ;?>
 			</div>
 
 			<div class="FormularioInput FormularioInput100 Center">
@@ -57,5 +59,14 @@ $cliente = $consulta->fetchALL();
 		</form>
 	</div>
 </div>
+
+
+<h1>Preencher exame</h1>
+<form action="upload.php" method="POST">
+	<?php echo"Arquivo"?> <input type="file" required name="arquivo">
+	<input type="submit" name="salvar">
+
+
+</form>
 <?= $_SESSION['username']?> - <a href="logout.php">Sair</a>
 <?php include 'fechamento.php' ?>
