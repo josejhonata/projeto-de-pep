@@ -1,4 +1,5 @@
 <?php
+
 include 'header.php' 
 include 'connection.php';
 
@@ -21,5 +22,5 @@ while ($row_usuario = $resultado_usuarios->fetch(PDO: :FETCH_ASSOC)) {
 
 
 ?>
-<a href="atendente_logado.php">Sair</a>
+<a href="atendente_logado.php">Voltar</a>
 <a href="logout.php">Sair</a>
