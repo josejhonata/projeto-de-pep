@@ -14,7 +14,11 @@ while ($row_usuario = $resultado_usuarios->fetch(PDO: :FETCH_ASSOC)) {
 	echo "Username: ". $row_usuario['username'] . "<br>" ;
 	echo "Password: ". $row_usuario['password'] . "<br>" ;
 
+
+
 }
+
+
 
 ?>
 <a href="atendente_logado.php">Sair</a>

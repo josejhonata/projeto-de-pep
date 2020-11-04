@@ -1,5 +1,6 @@
 <?php 
 
+
 $fonteDados = 'mysql:dbname=clinica';
 $username = 'esculapio';
 $password = '@lunoifp3';
