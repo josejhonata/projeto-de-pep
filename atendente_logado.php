@@ -12,6 +12,11 @@ $consulta = $pdo->prepare('SELECT * FROM cliente WHERE id = ?');
 $consulta->execute([$_SESSION['id']]);
 $cliente = $consulta->fetchALL();
 
+$consulta = $pdo->prepare('SELECT cliente.id as id, cliente.nome as nome, cli_ex.nome_exame as exame, resultado.id as resultado FROM cliente, cli_ex, resultado WHERE cliente.atendente_matri = ? and cliente.id = cli_ex.cliente_id and resultado.exame_nome = cli_ex.nome_exame');
+$consulta->execute([$_SESSION['matricula']]);
+$cliente = $consulta->fetchALL();
+
+
 
 $matricul = $_SESSION['matricula'];
 ?>
@@ -59,13 +64,6 @@ $matricul = $_SESSION['matricula'];
 		</form>
 	</div>
 </div>
-
-
-<h1>Preencher exame</h1>
-<form action="upload.php" method="POST">
-	<?php echo"Arquivo"?> <input type="file" required name="arquivo">
-	<input type="submit" name="salvar">
-
 
 </form>
 <?= $_SESSION['username']?> - <a href="logout.php">Sair</a>
