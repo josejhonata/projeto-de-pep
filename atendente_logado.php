@@ -12,31 +12,9 @@ $consulta = $pdo->prepare('SELECT * FROM cliente WHERE id = ?');
 $consulta->execute([$_SESSION['id']]);
 $cliente = $consulta->fetchALL();
 
-$consulta = $pdo->prepare('SELECT cliente.id as id, cliente.nome as nome, cli_ex.nome_exame as exame, resultado.id as resultado FROM cliente, cli_ex, resultado WHERE cliente.atendente_matri = ? and cliente.id = cli_ex.cliente_id and resultado.exame_nome = cli_ex.nome_exame');
-$consulta->execute([$_SESSION['matricula']]);
-$cliente = $consulta->fetchALL();
-
-
-
 $matricul = $_SESSION['matricula'];
 ?>
-<table border="10">
-	<h1>Clientes</h1>
-	<tr>
-		<td>Nome</td>
-		<td>Exame</td>
-		<td>Resultado</td>
-	</tr>
-</table>
-    <?php foreach ($cliente as $dado):?>
-        <tr> 
-            <td><?= $dado['Nome'] ?></td>
-            <td><?= $dado['Exame'] ?></td>
-            <td><?= $dado['Resultado'] ?></td>
-            <td><a href="deleta.php?id=<?= $dado['id'] ?>">x</a></td>
-        </tr>
-    <?php endforeach ?>
-</table>
+
 <div class="Formulario">
 	<form action="salvar_cliente.php" method="POST">
 		<h1 class="Center">CADASTRO DE CLIENTES</h1>
@@ -55,7 +33,7 @@ $matricul = $_SESSION['matricula'];
 				<input type="password" name="password">
 			</div>
 			<div class="FormularioInput">
-				<?php echo "Matrícula do Atendente: ". $matricul ;?>
+				<?php echo "Matrícula do Atendente: ". $matricul;?>
 			</div>
 
 			<div class="FormularioInput FormularioInput100 Center">
@@ -64,6 +42,40 @@ $matricul = $_SESSION['matricula'];
 		</form>
 	</div>
 </div>
+
+<div class="Formulario">
+	<form action="salvar_exame.php" method="POST">
+		<h1 class="Center">CADASTRO DE EXAMES</h1>
+
+		<div class="FormularioInput">
+			<div class="FormularioInput">
+				<?php echo "Matrícula do Atendente: ". $matricul;?>
+			</div>
+			<div class="FormularioInput">
+				Nome do exame: <br>
+				<input type="text" name="nome">
+			</div>
+
+			<div class="FormularioInput">
+				ID do paciente: <br>
+				<input type="number" name="paciente">
+			</div>
+
+			<div class="FormularioInput">
+				Tipo do exame: <br>
+				<input type="number" name="tipoExame">
+			</div>
+			<div class="FormularioInput">
+				
+			</div>
+
+			<div class="FormularioInput FormularioInput100 Center">
+				<input type="submit" value="OK">
+			</div>
+		</form>
+	</div>
+</div>
+
 
 </form>
 <?= $_SESSION['username']?> - <a href="logout.php">Sair</a>
