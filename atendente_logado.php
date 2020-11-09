@@ -62,8 +62,8 @@ $matricul = $_SESSION['matricula'];
 			</div>
 
 			<div class="FormularioInput">
-				Tipo do exame: <br>
-				<input type="number" name="tipoExame">
+				Resultado do Exame: <br>
+				<input type="text" name="resultado">
 			</div>
 			<div class="FormularioInput">
 				
@@ -78,5 +78,3 @@ $matricul = $_SESSION['matricula'];
 
 
 </form>
-<?= $_SESSION['username']?> - <a href="logout.php">Sair</a>
-<?php include 'fechamento.php' ?>

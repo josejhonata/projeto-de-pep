@@ -27,6 +27,7 @@ $resultado_exames-> execute();
     	<td><?= $row_exames['resultado'] ?></td>
     	<td><?= $row_exames['nome_exame'] ?></td>
     	<td><?= $row_exames['atendente_matricu'] ?></td>
+
     </tr>
 
 

@@ -20,6 +20,7 @@ $resultado_exames-> execute();
         <th>nome do exame</th>
     </tr>
 <?php while ($row_exames = $resultado_exames->fetch(PDO::FETCH_ASSOC)): ?>
+    
     <tr>
     	<td><?= $row_exames['cliente_id'] ?></td>
     	<td><?= $row_exames['resultado'] ?></td>

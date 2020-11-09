@@ -18,6 +18,7 @@ $resultado_usuarios-> execute();
         <th>Senha</th>
         <th>Ações</th>
         <th>Exclui</th>
+        
     </tr>
 <?php while ($row_usuario = $resultado_usuarios->fetch(PDO::FETCH_ASSOC)): ?>
     <tr>
