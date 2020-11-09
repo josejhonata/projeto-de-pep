@@ -1,7 +1,30 @@
-<?php 
+<?php
+include 'header.php' ;
 include 'connection.php';
 
-$consulta= PDOUtil::getStance()->prepare("SELECT tipo_ex,cli_ex FROM  ")
+//$sql = 'SELECT * FROM cliente WHERE id = ?'; // $_GET['cliente']
 
 
+$result_exames = "SELECT * FROM cli_ex";
+$resultado_exames = $pdo->prepare($result_exames);
+$resultado_exames-> execute();
 ?>
+
+
+
+<table>
+    <tr>
+        <th>Cliente id</th>
+        <th>Matricula do atendente</th>
+        <th>resultado do exame</th>
+        <th>nome do exame</th>
+    </tr>
+<?php while ($row_exames = $resultado_exames->fetch(PDO::FETCH_ASSOC)): ?>
+    <tr>
+    	<td><?= $row_exames['cliente_id'] ?></td>
+    	<td><?= $row_exames['resultado'] ?></td>
+    	<td><?= $row_exames['nome_exame'] ?></td>
+    	<td><?= $row_exames['atendente_matricu'] ?></td>
+    </tr>
+<?php endwhile ?>
+</table>

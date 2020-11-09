@@ -5,14 +5,12 @@ session_start();
 $matricul = $_SESSION['matricula'];
 
 
-$consulta = $pdo->prepare('INSERT INTO exame(nome) VALUES (?)');
-$consulta->execute([$_POST['nome']]);
+//$consulta = $pdo->prepare('INSERT INTO exame(nome) VALUES (?)');
+//$consulta->execute([$_POST['nome']]);
 
-$Sconsulta= $pdo->prepare('INSERT INTO cli_ex(cliente_id,atendente_matricu) VALUES (?,?)');
-$Sconsulta->execute([$_POST['paciente'], $matricul]);
+$consulta= $pdo->prepare('INSERT INTO cli_ex(cliente_id, atendente_matricu ,resultado,nome_exame) VALUES (?,?,?,?)');
+$consulta->execute([$_POST['paciente'], $matricul, $_POST['resultado'],$_POST['nome']]);
 
-$Tconsulta = $pdo->prepare('INSERT INTO tipo_ex(id) VALUES (?)');
-$Tconsulta->execute([$_POST['tipoExame']]);
 
 
 header('location:dadosexame.php');

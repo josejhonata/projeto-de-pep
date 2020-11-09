@@ -19,4 +19,3 @@
 		</form>
 	</div>
 </div>
-<?php include 'fechamento.php'; ?>
