@@ -4,6 +4,7 @@ body{
 background-image: url("fundoo.jpg");
 background-repeat: no-repeat;
 background-size: 100%;
+text-align: center;
 }
 
 
@@ -31,10 +32,12 @@ background-size: 100%;
 
 
 	table{
-		margin-top: 15px;
+		margin-top: 25px;
 		border-collapse: collapse;
 		font-size: 30px;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
+		text-align: center;
+		margin: auto;
 	}
 
 	tr,th,td{
@@ -42,3 +45,28 @@ background-size: 100%;
 		padding: 5px;
 
 	}
+	
+
+h1{
+	margin-bottom: 20px;
+	
+}
+
+h2{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	font-size: 35px;
+}
+
+.botao{
+display: block;
+line-height: 40px;
+padding: 10px 5px;
+margin: 20px;
+font-size: 25px;
+border-radius: 5px;
+text-decoration: none;
+font-weight: bold;
+font-family: Arial;
+margin-top: 10px;
+}

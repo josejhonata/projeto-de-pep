@@ -6,16 +6,16 @@ $matricul = $_SESSION['matricula'];
 
 
 
-$result_exames = "SELECT * FROM cli_ex";
+$result_exames = "SELECT * FROM exame";
 $resultado_exames = $pdo->prepare($result_exames);
 $resultado_exames-> execute();
 
 
-$consulta= $pdo->prepare('INSERT INTO cli_ex(cliente_id, atendente_matricu ,resultado,nome_exame) VALUES (?,?,?,?)');
-$consulta->execute([$_POST['paciente'], $matricul, $_POST['resultado'],$_POST['nome']]);
+$consulta= $pdo->prepare('INSERT INTO exame(nome) VALUES (?)');
+$consulta->execute([$_POST['nome']]);
 
 
 
-header('location:todosexames.php');
+header('location:atendente_logado.php');
 
 ?>
