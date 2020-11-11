@@ -1,80 +1,84 @@
 <?php include 'header.php' ?>
 
-
+<link rel="stylesheet" type="text/css" href="style.css">
 <?php
 include 'connection.php';
+
 session_start();
 if (!isset($_SESSION['matricula'])) {
     header('location: home.php');
     exit();
 }
+
 $consulta = $pdo->prepare('SELECT * FROM cliente WHERE id = ?');
 $consulta->execute([$_SESSION['id']]);
 $cliente = $consulta->fetchALL();
 
-$matricul = $_SESSION['matricula'];
+
+$result_usuarios = "SELECT * FROM cliente";
+$resultado_usuarios = $pdo->prepare($result_usuarios);
+$resultado_usuarios-> execute();
+
+
+$result_exames = "SELECT * FROM exame";
+$resultado_exames = $pdo->prepare($result_exames);
+$resultado_exames-> execute();
+
+
 ?>
 
-<div class="Formulario">
-	<form action="salvar_cliente.php" method="POST">
-		<h1 class="Center">CADASTRO DE CLIENTES</h1>
-		<div class="FormularioInput">
-			<div class="FormularioInput">
-				Nome: <br>
-				<input type="text" name="nome">
-			</div>
-			<div class="FormularioInput">
-				Username: <br>
-				<input type="text" name="username">
-			</div>
 
-			<div class="FormularioInput">
-				Password: <br>
-				<input type="password" name="password">
-			</div>
-			<div class="FormularioInput">
-				<?php echo "Matrícula do Atendente: ". $matricul;?>
-			</div>
+<h1>Todos os pacientes</h1>
 
-			<div class="FormularioInput FormularioInput100 Center">
-				<input type="submit" value="OK">
-			</div>
-		</form>
-	</div>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Atendente que cadastro</th>
+        <th>Marcar exame</th>
+        <th>Acessar cadastro do paciente</th>
+        <th>Excluir</th>
+       
+        
+    </tr>
+<?php while ($row_usuario = $resultado_usuarios->fetch(PDO::FETCH_ASSOC)): ?>
+    <tr>
+    	<td><?= $row_usuario['nome'] ?></td>
+    	<td><?= $row_usuario['atendente_matri'] ?></td>
+    	<td><a href="preechendoexame.php?cliente=<?= $row_usuario['id'] ?>">Exames</a></td>
+ 		<td><a href="dadospaciente.php?cliente=<?= $row_usuario['id'] ?>">Acessar</a></td>
+        <td><a href="exclui.php?id=<?= $row_usuario['id']?>">Excluir</a></td>
+        
+    </tr>
+
+
+<?php endwhile ?>
+</table>
+<div class="botao">
+<a href="cadastrocliente.php">Cadastrar um novo paciente</a>
 </div>
 
-<div class="Formulario">
-	<form action="salvar_exame.php" method="POST">
-		<h1 class="Center">CADASTRO DE EXAMES</h1>
+<h2>Todos exames</h2>
 
-		<div class="FormularioInput">
-			<div class="FormularioInput">
-				<?php echo "Matrícula do Atendente: ". $matricul;?>
-			</div>
-			<div class="FormularioInput">
-				Nome do exame: <br>
-				<input type="text" name="nome">
-			</div>
 
-			<div class="FormularioInput">
-				ID do paciente: <br>
-				<input type="number" name="paciente">
-			</div>
+<table>
+    <tr>
+        <th>Id do exame</th>
+        <th>Tipo do exame</th>   
+    </tr>
 
-			<div class="FormularioInput">
-				Resultado do Exame: <br>
-				<input type="text" name="resultado">
-			</div>
-			<div class="FormularioInput">
-				
-			</div>
+<?php while ($row_exames = $resultado_exames->fetch(PDO::FETCH_ASSOC)): ?>
+	
+    <tr>
+    	<td><?= $row_exames['id']?></td>
+    	<td><?= $row_exames['nome']?></td>
+        
+    </tr>
 
-			<div class="FormularioInput FormularioInput100 Center">
-				<input type="submit" value="OK">
-			</div>
-		</form>
-	</div>
+
+<?php endwhile ?>
+
+</table>
+
+<div class="botao">
+<a href="adiciona_exame.php">Adicionar um novo exame</a>
 </div>
-
-
-</form>
