@@ -16,26 +16,9 @@ include 'connection.php';
 
 		<div class="FormularioInput">
 			<div class="FormularioInput">
-				<?php echo "Matrícula do Atendente: ". $matricul;?>
-			</div>
-			<div class="FormularioInput">
-				Nome do exame: <br>
+				Tipo do exame: <br>
 				<input type="text" name="nome">
 			</div>
-
-			<div class="FormularioInput">
-				<?php echo "ID do paciente: ". $_GET['id'];?>
-				<input type="hidden" name="paciente" value="<?= $_GET['id']?>">
-			</div>
-
-			<div class="FormularioInput">
-				Resultado do Exame: <br>
-				<input type="text" name="resultado">
-			</div>
-			<div class="FormularioInput">
-				
-			</div>
-
 			<div class="FormularioInput FormularioInput100 Center">
 				<input type="submit" value="OK">
 			</div>
