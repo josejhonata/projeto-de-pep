@@ -15,10 +15,11 @@
 		<?php else: ?>
 			<li><a href="logout.php">Sair</a></li>
 			<?php if (isset($_SESSION['matricula'])): ?>
-				<li><a href="atendente_logado.php">Adicionar</a></li>
-				<li><a href="dadoscliente.php">Clientes</a></li>
+				<li><a href="atendente_logado.php">Todas informações</a></li>
+				<li><a href="cadastrocliente.php">Cadastrar Cliente</a></li>
+				<li><a href="adicionar_expaciente.php">Adicionar exame para paciente</a></li>
 				<li><a href="home.php">Home</a></li>
-				<li><a href="todosexames.php">Exames</a></li>
+				<li><a href="adiciona_exame.php">Cadastrar Exames</a></li>
 			<?php endif ?>
 		<?php endif ?>
 		<li><a href="developers.html">Desenvolvedores</a></li>
